@@ -6,6 +6,8 @@ import { Provider } from "react-redux";
 
 import reducers from "./src/reducers";
 
+import NewTimer from "./src/components/NewTimer"
+
 const store = createStore(reducers);
 
 export default function App() {
@@ -13,7 +15,7 @@ export default function App() {
         <Provider store={store}>
             <View style={styles.container}>
                 <StatusBar style="auto" />
-                <Text>TP Timer , go on !</Text>
+                <NewTimer />
             </View>
         </Provider>
     );
