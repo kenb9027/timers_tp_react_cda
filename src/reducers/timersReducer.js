@@ -1,6 +1,6 @@
 // Import all of our actions
 import { NEW_TIMER, TOGGLE_TIMER } from '../actions';
-import Timer from '../components/Timer'
+import Timer from '../Timer'
 
 const timersReducer = (state = [], action) => {
   switch (action.type) {
