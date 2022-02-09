@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import reducers from "./src/reducers";
 
 import NewTimer from "./src/components/NewTimer"
+import ListTimers from "./src/ListTimers";
 
 const store = createStore(reducers);
 
@@ -16,6 +17,7 @@ export default function App() {
             <View style={styles.container}>
                 <StatusBar style="auto" />
                 <NewTimer />
+                <ListTimers />
             </View>
         </Provider>
     );
@@ -30,3 +32,6 @@ const styles = StyleSheet.create({
     },
 });
 
+/**
+ * TODO : apply styles (chapter 7)
+ */

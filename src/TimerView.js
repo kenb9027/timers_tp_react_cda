@@ -1,0 +1,27 @@
+import React from "react";
+import { Text, View , Button } from "react-native";
+
+import { useDispatch } from "react-redux";
+// Import our toggleTimer action
+import { toggleTimer } from "./actions";
+
+export default function TimerView(props) {
+    // Extract these specific props to use in the component
+    const { index, timer } = props;
+    const dispatch = useDispatch();
+
+    return (
+        <View>
+            <Text>{timer.name}</Text>
+            <Text>{timer.time}</Text>
+            <Button
+                title={timer.isRunning ? "Stop" : "Start"}
+                color={"green"}
+                onPress={() => {
+                    console.log("Pressing on : Start/Stop timer " + timer.name);
+                    dispatch(toggleTimer(index))
+                }}
+            />
+        </View>
+    );
+}
