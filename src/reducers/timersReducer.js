@@ -1,5 +1,11 @@
 // Import all of our actions
-import { NEW_TIMER, TOGGLE_TIMER, UPDATE } from "../actions";
+import {
+    NEW_TIMER,
+    TOGGLE_TIMER,
+    UPDATE,
+    RESET_TIMER,
+    DELETE_TIMER,
+} from "../actions";
 import Timer from "../Timer";
 
 const timersReducer = (state = [], action) => {
@@ -31,6 +37,23 @@ const timersReducer = (state = [], action) => {
                 }
                 return timer;
             });
+
+        case RESET_TIMER:
+            // reset time
+            const newResetState = state.map((timer, index) => {
+                if (action.payload.index === index) {
+                    return { ...timer, time: 0 };
+                }
+                return timer;
+            });
+            return newResetState;
+
+        case DELETE_TIMER:
+            // delete timer
+            let firstPart = state.slice(0, action.payload.index);
+            let secondPart = state.slice(action.payload.index + 1)           
+            state = firstPart.concat(secondPart);
+            return state;
 
         default:
             return state;

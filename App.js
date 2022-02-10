@@ -73,5 +73,4 @@ const styles = StyleSheet.create({
  * TODO
  *
  * - add delete timer btn
- * - add reset timer btn
  */
