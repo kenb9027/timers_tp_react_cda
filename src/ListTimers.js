@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 import { useSelector } from "react-redux";
 import { selectTimer } from "./actions";
 
@@ -9,7 +9,7 @@ export default function ListTimers() {
     const timers = useSelector((state) => state.timers);
 
     return (
-        <View>
+        <View style={styles.listTimers} >
             {timers.map((timer, i) => {
                 // Here the render method maps `this.props.timers` to:
                 return (
@@ -23,3 +23,6 @@ export default function ListTimers() {
         </View>
     );
 }
+const styles = StyleSheet.create({
+
+});

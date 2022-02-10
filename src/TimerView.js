@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View , Button } from "react-native";
+import { Text, View , Button, StyleSheet } from "react-native";
 
 import { useDispatch } from "react-redux";
 // Import our toggleTimer action
@@ -11,9 +11,9 @@ export default function TimerView(props) {
     const dispatch = useDispatch();
 
     return (
-        <View>
-            <Text>{timer.name}</Text>
-            <Text>{timer.time}</Text>
+        <View style={styles.timerView} >
+            <Text  style={styles.name}  >{timer.name}</Text>
+            <Text  style={styles.time}  >{timer.time}</Text>
             <Button
                 title={timer.isRunning ? "Stop" : "Start"}
                 color={"green"}
@@ -25,3 +25,23 @@ export default function TimerView(props) {
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    timerView: {
+        backgroundColor: "#eee",
+        borderRadius: 5,
+        padding: 6,
+        margin: 5,
+    },
+    name: {
+        fontWeight: "bold",
+        color: 'green',
+        textAlign: 'center',
+        margin: 3,
+    },
+    time: {
+        fontWeight: "bold",
+        textAlign: 'center',
+        margin: 3,
+    }
+});

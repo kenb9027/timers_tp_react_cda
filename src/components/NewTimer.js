@@ -10,7 +10,8 @@ export default function NewTimer() {
     const dispatch = useDispatch();
 
     return (
-        <View>
+        <View style={styles.newTimer}>
+            <Text style={styles.title}>Ajouter un Timer</Text>
             <TextInput
                 style={styles.input}
                 placeholder="New Timer Name"
@@ -19,9 +20,9 @@ export default function NewTimer() {
             />
             <Button
                 title="Save"
-                color={'purple'}
+                color={"purple"}
                 onPress={() => {
-                    console.log("Pressing on : Add a timer")
+                    console.log("Pressing on : Add a timer");
                     dispatch(addTimer(name));
                 }}
             />
@@ -30,6 +31,15 @@ export default function NewTimer() {
 }
 
 const styles = StyleSheet.create({
+    newTimer: {
+        backgroundColor: "#ddd",
+        borderRadius: 5,
+        padding: 10,
+        margin: 5,
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+    },
     input: {
         borderWidth: 2,
         borderColor: "purple",
@@ -38,6 +48,12 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         width: 250,
         backgroundColor: "#fff",
+    },
+    title: {
+        fontWeight: "bold",
+        color: "purple",
+        textAlign: "center",
+        margin: 5,
     },
 });
 
