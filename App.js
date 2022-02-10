@@ -4,12 +4,41 @@ import { StyleSheet, Text, View, ScrollView } from "react-native";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 
+// import throttle from 'lodash/throttle'
+
+import { update } from './src/actions'
+
 import reducers from "./src/reducers";
+
+// import { loadState , saveState } from "./src/utils";
 
 import NewTimer from "./src/components/NewTimer";
 import ListTimers from "./src/ListTimers";
 
 const store = createStore(reducers);
+
+// PERSISTANCE WITH LOCAL STORAGE
+
+// const persistedState = loadState();
+// const store = createStore(reducers, persistedState);
+
+// store.subscribe(() => {
+//     saveState(store.getState())
+// } )
+
+// store.subscribe(
+//     throttle(() => {
+//         saveState(store.getState());
+//     }, 1000)
+// );
+
+let lastUpdateTime = Date.now()
+setInterval(() => {
+  const now = Date.now()
+  const deltaTime = now - lastUpdateTime
+  lastUpdateTime = now
+  store.dispatch(update(deltaTime))
+}, 50)
 
 export default function App() {
     return (
@@ -39,3 +68,12 @@ const styles = StyleSheet.create({
         marginTop: 30,
     }
 });
+
+
+
+/**
+ * TODO
+ * 
+ * - add delete timer btn
+ * - add reset timer btn
+ */
