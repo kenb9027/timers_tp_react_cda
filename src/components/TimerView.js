@@ -20,7 +20,7 @@ export default function TimerView(props) {
                 title={timer.isRunning ? "Stop" : "Start"}
                 color={"green"}
                 onPress={() => {
-                    console.log("Pressing on : Start/Stop timer " + timer.name);
+                    console.log("Toggle timer " + timer.name);
                     dispatch(toggleTimer(index))
                 }}
             />

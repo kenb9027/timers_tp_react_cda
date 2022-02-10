@@ -14,15 +14,15 @@ export default function NewTimer() {
             <Text style={styles.title}>Ajouter un Timer</Text>
             <TextInput
                 style={styles.input}
-                placeholder="New Timer Name"
+                placeholder="Nom du nouveau Timer..."
                 value={name}
                 onChangeText={setName}
             />
             <Button
-                title="Save"
+                title="AJOUTER"
                 color={"purple"}
                 onPress={() => {
-                    console.log("Pressing on : Add a timer");
+                    console.log("Add a timer");
                     dispatch(addTimer(name));
                 }}
             />

@@ -26,7 +26,6 @@ export const selectTimer = (index) => {
 
 
 export const UPDATE = "UPDATE"
-
 export const update = (deltaTime) => {
   return {
     type: UPDATE,
